@@ -1,0 +1,4 @@
+
+import Header from '../components/Header'; import Footer from '../components/Footer'; import {useEffect} from 'react';
+export default function Home(){ useEffect(()=>{ const io=new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); }); },{threshold:0.1}); document.querySelectorAll('.fade-in').forEach(el=>io.observe(el)); return ()=>io.disconnect(); },[]);
+return (<div><Header/><main><section className="min-h-[60vh] flex items-center"><div className="max-w-4xl mx-auto text-center fade-in"><h1 className="text-5xl md:text-6xl font-bold">Q·aid: Intelligent Healthcare Solutions</h1><p className="mt-4 text-gray-300">Fair, Fast, Accessible Healthcare</p><div className="mt-6 flex gap-3 justify-center"><a href="/shop" className="btn-primary">Explore Kiosks</a><a href="/about" className="btn-outline">Learn More</a></div></div></section></main><Footer/></div>); }

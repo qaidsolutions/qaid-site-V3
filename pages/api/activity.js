@@ -1,0 +1,1 @@
+import { store } from '../../utils/fake-db'; export default function handler(req,res){ res.json({ activity: store.activity }); }

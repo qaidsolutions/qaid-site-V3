@@ -1,0 +1,1 @@
+import Header from '../components/Header'; import Footer from '../components/Footer'; export default function Terms(){ return (<div><Header/><main className='section max-w-4xl mx-auto card'><h2 className='text-2xl font-bold'>Terms & Conditions</h2><p className='mt-3'>Placeholder terms for MVP</p></main><Footer/></div>); }

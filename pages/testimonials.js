@@ -1,0 +1,1 @@
+import Header from '../components/Header'; import Footer from '../components/Footer'; export default function T(){ return (<div><Header/><main className='section'><div className='max-w-6xl mx-auto text-center'><h2 className='text-3xl font-bold'>Testimonials</h2></div></main><Footer/></div>); }

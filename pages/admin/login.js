@@ -1,0 +1,5 @@
+
+import {useState} from 'react'; import Router from 'next/router';
+export default function Login(){ const [u,setU]=useState(''); const [p,setP]=useState(''); const [err,setErr]=useState('');
+async function submit(e){ e.preventDefault(); const res=await fetch('/api/auth',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:u,password:p})}); const j=await res.json(); if(j.ok){ localStorage.setItem('qaid_user',JSON.stringify(j.user)); Router.push('/admin/dashboard'); } else setErr(j.message||'Login failed'); }
+return (<div className='min-h-screen flex items-center justify-center bg-black p-4'><form onSubmit={submit} className='card w-96'><h2 className='text-xl font-bold'>Admin Login</h2>{err && <div className='text-red-400'>{err}</div>}<input className='p-2 mt-3' placeholder='username' value={u} onChange={e=>setU(e.target.value)}/><input type='password' className='p-2 mt-2' placeholder='password' value={p} onChange={e=>setP(e.target.value)}/><button className='btn-primary mt-4 w-full'>Sign In</button></form></div>); }

@@ -1,0 +1,5 @@
+
+import Header from '../components/Header'; import Footer from '../components/Footer'; import {useState} from 'react';
+export default function Insurance(){ const plans=[{id:1,title:'Basic',price:12000},{id:2,title:'Advanced',price:25000},{id:3,title:'Premium',price:40000}]; const [msg,setMsg]=useState('');
+async function buy(p){ const res=await fetch('/api/insurance',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({plan:p})}); if((await res.json()).ok) setMsg('Recorded (sandbox)'); }
+return (<div><Header/><main className='section'><div className='max-w-6xl mx-auto text-center'><h2 className='text-3xl font-bold'>Insurance</h2><div className='mt-6 grid md:grid-cols-3 gap-6'>{plans.map(p=>(<div key={p.id} className='card'><h3 className='font-semibold'>{p.title}</h3><p className='mt-2'>₹{p.price}</p><div className='mt-4'><button className='btn-primary' onClick={()=>buy(p)}>Buy</button></div></div>))}</div>{msg && <div className='mt-4 text-green-400'>{msg}</div>}</div></main><Footer/></div>); }
