@@ -1,0 +1,3 @@
+
+import Link from 'next/link';
+export default function Header(){ return (<header className="sticky top-0 bg-black/70 p-3 z-40"><div className="max-w-6xl mx-auto flex items-center"><img src="/Q·aid logo.png" className="header-logo"/><nav className="ml-6 hidden md:flex gap-6 text-gray-300"><Link href="/"><a>Home</a></Link><Link href="/about"><a>About</a></Link><Link href="/shop"><a>Shop</a></Link><Link href="/maintenance"><a>Maintenance</a></Link><Link href="/insurance"><a>Insurance</a></Link><Link href="/blog"><a>Blog</a></Link><Link href="/testimonials"><a>Testimonials</a></Link><Link href="/contact"><a>Contact</a></Link></nav><div className="ml-auto"><Link href="/admin/login"><a className="btn-primary px-3 py-1">Sign In</a></Link></div></div></header>); }
